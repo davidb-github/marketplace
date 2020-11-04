@@ -13,9 +13,11 @@ export const ProductList = () => {
     const arrayOfProductHTMLRepresentations = products.map(product => {
      
         // Find the type for this product by using the .find() method on the product type array
+        const type = productTypes.find(type => {
+            
+            return type.id === product.productTypeId
+        })
         
-        const type = productTypes.find(type => type.id === product.productTypeId)
-
         // Build HTML representation of a product
         const html = Product(product, type)
 
